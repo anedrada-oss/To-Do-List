@@ -79,6 +79,26 @@ header p {
     transform: scale(0.98);
 }
 
+.delete-all-btn {
+    padding: 12px 24px;
+    background: #ff6b6b;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.delete-all-btn:hover {
+    background: #ff5252;
+}
+
+.delete-all-btn:active {
+    transform: scale(0.98);
+}
+
 .task-list {
     display: flex;
     flex-direction: column;
@@ -162,6 +182,10 @@ header p {
     }
 
     .add-btn {
+        width: 100%;
+    }
+
+    .delete-all-btn {
         width: 100%;
     }
 }

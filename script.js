@@ -1,5 +1,6 @@
 const taskInput = document.getElementById('taskInput');
 const addBtn = document.getElementById('addBtn');
+const deleteAllBtn = document.getElementById('deleteAllBtn');
 const taskList = document.getElementById('taskList');
 const emptyState = document.getElementById('emptyState');
 
@@ -8,6 +9,7 @@ loadTasks();
 
 
 addBtn.addEventListener('click', addTask);
+deleteAllBtn.addEventListener('click', deleteAllTasks);
 taskInput.addEventListener('keypress', (e) => {
     if (e.key === 'Enter') {
         addTask();
@@ -44,6 +46,17 @@ function deleteTask(id) {
     tasks = tasks.filter(task => task.id !== id);
     saveTasks(tasks);
     renderTasks();
+}
+
+function deleteAllTasks() {
+    if (getTasks().length === 0) {
+        alert('No tasks to delete!');
+        return;
+    }
+    if (confirm('Are you sure you want to delete all tasks? This cannot be undone.')) {
+        saveTasks([]);
+        renderTasks();
+    }
 }
 
 
